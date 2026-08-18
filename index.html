@@ -90,28 +90,7 @@
 
       <div class="category-grid">
         
-        <!-- 項目 1：全真隨機模擬測驗 -->
-        <div class="category-card" onclick="app.startExam('random_50')">
-          <div class="card-left">
-            <div class="card-icon" style="color: var(--accent-primary);">🎯</div>
-            <div class="card-info">
-              <div class="card-title-wrap">
-                <span class="card-title">全真隨機模擬測驗</span>
-                <span class="card-badge badge-blue">官方標準模式</span>
-              </div>
-              <p class="card-desc">依據正式大考規格，自 200 題庫隨機抽取 50 題，限時 60 分鐘，每題 2 分，70 分及格。</p>
-            </div>
-          </div>
-          <div class="card-right">
-            <div class="card-meta">
-              <span><b>50</b> 題 / <b>60</b> 分鐘</span>
-              <span>合格標準：70分</span>
-            </div>
-            <div class="card-arrow">➜</div>
-          </div>
-        </div>
-
-        <!-- 項目 2：循序固定試卷 (A / B / C / D 卷) -->
+        <!-- 項目 1：循序固定試卷 (A / B / C / D 卷) -->
         <div class="category-card" style="cursor: default;" onclick="event.stopPropagation();">
           <div class="card-left" style="width: 100%; flex-direction: column; align-items: flex-start; gap: 0.8rem;">
             <div style="display: flex; align-items: center; gap: 1.2rem; width: 100%;">
@@ -159,6 +138,27 @@
                 <span style="color: var(--accent-primary); font-weight: bold;">➜</span>
               </div>
             </div>
+          </div>
+        </div>
+
+        <!-- 項目 2：全真隨機模擬測驗 -->
+        <div class="category-card" onclick="app.startExam('random_50')">
+          <div class="card-left">
+            <div class="card-icon" style="color: var(--accent-primary);">🎯</div>
+            <div class="card-info">
+              <div class="card-title-wrap">
+                <span class="card-title">隨機模擬測驗</span>
+                <span class="card-badge badge-blue">官方標準模式</span>
+              </div>
+              <p class="card-desc">依據正式大考規格，自 200 題庫隨機抽取 50 題，限時 60 分鐘，每題 2 分，70 分及格。</p>
+            </div>
+          </div>
+          <div class="card-right">
+            <div class="card-meta">
+              <span><b>50</b> 題 / <b>60</b> 分鐘</span>
+              <span>合格標準：70分</span>
+            </div>
+            <div class="card-arrow">➜</div>
           </div>
         </div>
 
@@ -494,13 +494,13 @@
         </ol>
         <div style="background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem;">
           👉 您亦可使用專屬考照 GPTs：
-          <a href="https://reurl.cc/AMl5j3" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary); font-weight: 700; text-decoration: underline; margin-left: 0.4rem;">
-            開啟保險業務員考照 GPTs 助手 ↗
+          <a href="https://chatgpt.com/g/g-68300fd7a6ac8191a552b8cf30b27132-wai-bi-shou-fu-fei-tou-zi-xing-bao-xian-shang-pin-kao-zhao-fu-dao-xiao-zhu-jiao-by-hao-lao-shi" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary); font-weight: 700; text-decoration: underline; margin-left: 0.4rem;">
+            開啟保險業務員考照 GPTs 助手 (郝老師) ↗
           </a>
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn-action btn-primary" onclick="window.open('https://reurl.cc/AMl5j3', '_blank');">
+        <button class="btn-action btn-primary" onclick="window.open('https://chatgpt.com/g/g-68300fd7a6ac8191a552b8cf30b27132-wai-bi-shou-fu-fei-tou-zi-xing-bao-xian-shang-pin-kao-zhao-fu-dao-xiao-zhu-jiao-by-hao-lao-shi', '_blank');">
           🚀 前往 AI 助手
         </button>
         <button class="btn-action btn-secondary" onclick="app.closeModals()">
