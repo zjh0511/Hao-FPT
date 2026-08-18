@@ -2,7 +2,7 @@
 
 > **線上體驗網址**：[https://zjh0511.github.io/Hao-FPT/](https://zjh0511.github.io/Hao-FPT/)  
 > **GitHub 儲存庫**：[https://github.com/zjh0511/Hao-FPT](https://github.com/zjh0511/Hao-FPT)  
-> **專案說明**：專為人身保險業務員考照打造之現代化、零延遲、純前端靜態模擬測驗系統。收錄官方 200 題完整題庫，支援全真隨機抽題、A/B/C/D 分卷精熟、考前大衝刺、智慧錯題本與 AI 考照小助教。
+> **專案說明**：專為人身保險業務員考照打造之現代化、零延遲、純前端靜態模擬測驗系統。收錄官方 200 題完整題庫，支援 A/B/C/D 分卷精熟、全真隨機抽題、智慧錯題本與 AI 考照小助教。
 
 ---
 
@@ -17,11 +17,10 @@
    - 每回由 200 題庫中隨機抽取 50 題（採用 Fisher-Yates 均勻洗牌演算法）。
    - 每題 2 分，滿分 100 分，70 分及格。
    - 60 分鐘精準倒數計時，倒數 5 分鐘進入紅色預警，時間截止自動交卷。
-3. **⚡ 考前 200 題全真大衝刺**：全題庫 200 題不限時完整練習，考前快速掃盲。
-4. **📕 智慧錯題本專區 (Smart Error Notebook)**：
+3. **📕 智慧錯題本專區 (Smart Error Notebook)**：
    - 自動收錄歷次模擬考中做錯與漏答的題目。
    - 支援「錯題專屬特訓」模式，掌握後可一鍵移出。
-5. **🤖 AI 考照輔導小助教 (豪老師 ChatGPT 專屬 GPTs)**：
+4. **🤖 AI 考照輔導小助教 (豪老師 ChatGPT 專屬 GPTs)**：
    - 詳解頁面支援「一鍵複製題目與 AI 提問 Prompt」，可直接貼給 ChatGPT / Claude / Gemini 獲取法規重點與速記技巧。
    - 內建專屬考照 GPTs：[開啟外幣考照小助教 (by 豪老師)](https://chatgpt.com/g/g-68300fd7a6ac8191a552b8cf30b27132-wai-bi-shou-fu-fei-tou-zi-xing-bao-xian-shang-pin-kao-zhao-fu-dao-xiao-zhu-jiao-by-hao-lao-shi)。
 6. **🗺️ 答題進度地圖與鍵盤快捷鍵**：
