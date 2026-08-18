@@ -21,9 +21,9 @@
 4. **📕 智慧錯題本專區 (Smart Error Notebook)**：
    - 自動收錄歷次模擬考中做錯與漏答的題目。
    - 支援「錯題專屬特訓」模式，掌握後可一鍵移出。
-5. **🤖 AI 考照輔導小助教 (郝老師 ChatGPT 專屬 GPTs)**：
+5. **🤖 AI 考照輔導小助教 (豪老師 ChatGPT 專屬 GPTs)**：
    - 詳解頁面支援「一鍵複製題目與 AI 提問 Prompt」，可直接貼給 ChatGPT / Claude / Gemini 獲取法規重點與速記技巧。
-   - 內建專屬考照 GPTs：[開啟外幣考照小助教](https://chatgpt.com/g/g-68300fd7a6ac8191a552b8cf30b27132-wai-bi-shou-fu-fei-tou-zi-xing-bao-xian-shang-pin-kao-zhao-fu-dao-xiao-zhu-jiao-by-hao-lao-shi)。
+   - 內建專屬考照 GPTs：[開啟外幣考照小助教 (by 豪老師)](https://chatgpt.com/g/g-68300fd7a6ac8191a552b8cf30b27132-wai-bi-shou-fu-fei-tou-zi-xing-bao-xian-shang-pin-kao-zhao-fu-dao-xiao-zhu-jiao-by-hao-lao-shi)。
 6. **🗺️ 答題進度地圖與鍵盤快捷鍵**：
    - 支援快捷鍵：`1~4` / `A~D` 選擇答案、`←/→` 切換題目、`F` 標記星號、`Space` 暫停。
    - 即時答題地圖網格（已答、未答、標記、當前題號）。
