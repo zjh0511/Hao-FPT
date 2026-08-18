@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="人身保險業務員資格測驗【外幣收付非投資型保險商品】線上模擬考試系統。收錄最新完整200題庫、全真模擬測驗、A/B/C/D分卷精熟、錯題本與AI輔導助教。">
+  <meta name="keywords" content="人身保險業務員,外幣收付,非投資型保險,模擬考試,外幣保單題庫,外幣保險證照">
+  <meta name="author" content="Antigravity Exam Platform">
+  <title>外幣收付非投資型保險商品 - 線上模擬考試系統</title>
+  
+  <!-- CSS Design System -->
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <!-- 頂部導覽列 (Navbar) -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand" onclick="app.switchView('view-home')">
+        <div class="brand-icon">🌐</div>
+        <div class="brand-title">
+          <h1>外幣收付非投資型保險商品</h1>
+          <span>人身保險業務員資格測驗 · 專業科目模擬考平台</span>
+        </div>
+      </div>
+
+      <div class="nav-actions">
+        <button class="btn-nav" onclick="app.showPdfModal()" title="查看官方PDF題庫">
+          <span>📖</span> <span class="nav-btn-text">官方題庫</span>
+        </button>
+        <button class="btn-nav" onclick="app.showErrorBookModal()" title="開啟錯題本">
+          <span>📕</span> <span class="nav-btn-text">錯題本</span>
+        </button>
+        <button class="btn-nav" onclick="app.showHistoryModal()" title="檢視歷次測驗紀錄">
+          <span>📊</span> <span class="nav-btn-text">練習紀錄</span>
+        </button>
+        <button id="theme-toggle-btn" class="btn-icon" onclick="app.toggleTheme()" title="切換主題">
+          ☀️
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主內容視圖容器 (SPA Main Container) -->
+  <main class="app-main">
+
+    <!-- ====================================================================
+         視圖 1：首頁選單 (View: Home Dashboard)
+         ==================================================================== -->
+    <section id="view-home" class="view-section active">
+      
+      <!-- 英雄介紹橫幅 -->
+      <div class="hero-banner">
+        <div class="hero-badge-wrap">
+          <span class="badge-tag accent">🎯 100% 擬真大考</span>
+          <span class="badge-tag success">⚡ 60 分鐘限時 / 70 分及格</span>
+          <span class="badge-tag">💎 零延遲純前端運算</span>
+          <span class="badge-tag">🤖 AI 輔導模組</span>
+        </div>
+        <h2 class="hero-title">外幣收付非投資型保險商品 模擬測驗系統</h2>
+        <p class="hero-desc">
+          專為人身保險業務員考照設計。收錄全範圍 200 題最新法規與實務精選考題，提供全真隨機抽題、循序分卷練習、考前大衝刺、智慧錯題本與 AI 考照小助教，助您一次高分通關！
+        </p>
+
+        <!-- 數據統計看板 -->
+        <div class="hero-stats-row">
+          <div class="stat-box">
+            <span class="stat-label">題庫總收錄</span>
+            <span class="stat-value" id="stat-total-questions">200</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">累計測驗次數</span>
+            <span class="stat-value" id="stat-exam-count">0</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">錯題本待複習</span>
+            <span class="stat-value" id="stat-error-count" style="color: var(--color-danger);">0</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label">歷次平均分數</span>
+            <span class="stat-value" id="stat-avg-score" style="color: var(--color-success);">--</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 條列式選單列表 -->
+      <div class="section-title">
+        <span>📑</span> 選擇練習模式
+      </div>
+
+      <div class="category-grid">
+        
+        <!-- 項目 1：全真隨機模擬測驗 -->
+        <div class="category-card" onclick="app.startExam('random_50')">
+          <div class="card-left">
+            <div class="card-icon" style="color: var(--accent-primary);">🎯</div>
+            <div class="card-info">
+              <div class="card-title-wrap">
+                <span class="card-title">全真隨機模擬測驗</span>
+                <span class="card-badge badge-blue">官方標準模式</span>
+              </div>
+              <p class="card-desc">依據正式大考規格，自 200 題庫隨機抽取 50 題，限時 60 分鐘，每題 2 分，70 分及格。</p>
+            </div>
+          </div>
+          <div class="card-right">
+            <div class="card-meta">
+              <span><b>50</b> 題 / <b>60</b> 分鐘</span>
+              <span>合格標準：70分</span>
+            </div>
+            <div class="card-arrow">➜</div>
+          </div>
+        </div>
+
+        <!-- 項目 2：循序固定試卷 (A / B / C / D 卷) -->
+        <div class="category-card" style="cursor: default;" onclick="event.stopPropagation();">
+          <div class="card-left" style="width: 100%; flex-direction: column; align-items: flex-start; gap: 0.8rem;">
+            <div style="display: flex; align-items: center; gap: 1.2rem; width: 100%;">
+              <div class="card-icon" style="color: hsl(270, 85%, 70%);">📑</div>
+              <div class="card-info" style="flex: 1;">
+                <div class="card-title-wrap">
+                  <span class="card-title">循序固定試卷（分段精熟）</span>
+                  <span class="card-badge badge-purple">4 大精選卷</span>
+                </div>
+                <p class="card-desc">依題號順序精準拆解為 4 份 50 題試卷，方便系統化地毯式複習。</p>
+              </div>
+            </div>
+
+            <!-- 四卷子選單按鈕 -->
+            <div class="paper-subgrid">
+              <div class="paper-chip" onclick="app.startExam('paper_A')">
+                <div>
+                  <div class="paper-chip-name">【A 卷】第 001 ~ 050 題</div>
+                  <div class="paper-chip-tag">基礎法規與外匯管理辦法</div>
+                </div>
+                <span style="color: var(--accent-primary); font-weight: bold;">➜</span>
+              </div>
+
+              <div class="paper-chip" onclick="app.startExam('paper_B')">
+                <div>
+                  <div class="paper-chip-name">【B 卷】第 051 ~ 100 題</div>
+                  <div class="paper-chip-tag">投資型規範與管理條例</div>
+                </div>
+                <span style="color: var(--accent-primary); font-weight: bold;">➜</span>
+              </div>
+
+              <div class="paper-chip" onclick="app.startExam('paper_C')">
+                <div>
+                  <div class="paper-chip-name">【C 卷】第 101 ~ 150 題</div>
+                  <div class="paper-chip-tag">資產配置與風險控管</div>
+                </div>
+                <span style="color: var(--accent-primary); font-weight: bold;">➜</span>
+              </div>
+
+              <div class="paper-chip" onclick="app.startExam('paper_D')">
+                <div>
+                  <div class="paper-chip-name">【D 卷】第 151 ~ 200 題</div>
+                  <div class="paper-chip-tag">準備金與綜合實務案例</div>
+                </div>
+                <span style="color: var(--accent-primary); font-weight: bold;">➜</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 項目 3：考前 200 題全真大衝刺 -->
+        <div class="category-card" onclick="app.startExam('all_200')">
+          <div class="card-left">
+            <div class="card-icon" style="color: var(--color-warning);">⚡</div>
+            <div class="card-info">
+              <div class="card-title-wrap">
+                <span class="card-title">考前 200 題全真大衝刺</span>
+                <span class="card-badge badge-amber">全題庫練習</span>
+              </div>
+              <p class="card-desc">一次挑戰完整 200 題，全方位掃除盲點，適合考前 1~3 天快速過題衝刺高分。</p>
+            </div>
+          </div>
+          <div class="card-right">
+            <div class="card-meta">
+              <span><b>200</b> 題 / <b>120</b> 分鐘</span>
+              <span>全題庫一次掌握</span>
+            </div>
+            <div class="card-arrow">➜</div>
+          </div>
+        </div>
+
+        <!-- 項目 4：智慧錯題本專區 -->
+        <div class="category-card" onclick="app.startExam('error_book')">
+          <div class="card-left">
+            <div class="card-icon" style="color: var(--color-danger);">📕</div>
+            <div class="card-info">
+              <div class="card-title-wrap">
+                <span class="card-title">智慧錯題本專區</span>
+                <span class="card-badge" style="background: var(--color-danger-bg); color: var(--color-danger); border: 1px solid var(--color-danger-border);" id="badge-error-count">0 題收錄</span>
+              </div>
+              <p class="card-desc">系統自動收錄您在歷次模擬測驗中答錯或遺漏的題目，專屬針對弱點重複強化。</p>
+            </div>
+          </div>
+          <div class="card-right">
+            <div class="card-meta">
+              <span>個別弱點專攻</span>
+              <span>答對可手動移出</span>
+            </div>
+            <div class="card-arrow">➜</div>
+          </div>
+        </div>
+
+        <!-- 項目 5：AI 考照輔導小助教 -->
+        <div class="category-card" onclick="app.showAiModal()">
+          <div class="card-left">
+            <div class="card-icon" style="color: var(--color-info);">🤖</div>
+            <div class="card-info">
+              <div class="card-title-wrap">
+                <span class="card-title">AI 考照輔導小助教</span>
+                <span class="card-badge badge-emerald">24H 智慧家教</span>
+              </div>
+              <p class="card-desc">看不懂法規名詞或計算題？隨時調用專屬 AI 考照指令，一鍵生成法規深度解析與口訣。</p>
+            </div>
+          </div>
+          <div class="card-right">
+            <div class="card-meta">
+              <span>ChatGPT / Claude 串接</span>
+              <span>一鍵複製 Prompt</span>
+            </div>
+            <div class="card-arrow">➜</div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ====================================================================
+         視圖 2：測驗進行室 (View: Exam Room)
+         ==================================================================== -->
+    <section id="view-exam" class="view-section">
+      
+      <!-- 測驗頂部狀態列 -->
+      <div class="exam-header">
+        <div class="exam-info-block">
+          <button class="btn-action btn-secondary" onclick="if(confirm('確定要中途退出測驗回到首頁嗎？目前的作答進度將不會結算成績。')) app.switchView('view-home');">
+            ✕ 離開
+          </button>
+          <span class="exam-title-badge" id="exam-title-display">外幣收付模擬測驗</span>
+        </div>
+
+        <div class="exam-top-actions">
+          <div class="timer-badge" id="exam-timer-badge">
+            <span>⏱</span>
+            <span id="timer-countdown-text">60:00</span>
+          </div>
+          <button class="btn-action btn-secondary" id="btn-pause-exam" onclick="app.togglePause()" title="暫停/繼續計時 (Space)">
+            ⏸ 暫停
+          </button>
+          <button class="btn-action btn-submit" onclick="app.confirmSubmit()">
+            📤 交卷
+          </button>
+        </div>
+      </div>
+
+      <!-- 測驗主要佈局 (題目區 + 答題地圖) -->
+      <div class="exam-layout">
+        
+        <!-- 左側：當前題目容器 -->
+        <div class="question-container">
+          
+          <div class="q-meta-bar">
+            <div class="q-number-pill">
+              <span>📌</span>
+              <span id="q-current-index">第 1 / 50 題</span>
+              <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: normal; margin-left: 0.5rem;" id="q-original-id">原題號 #1</span>
+            </div>
+            <button class="btn-flag" id="btn-flag-q" onclick="app.toggleFlag()">
+              ☆ 標記此題 (F)
+            </button>
+          </div>
+
+          <!-- 題目內文 -->
+          <div class="q-text" id="q-text-content">
+            題目載入中...
+          </div>
+
+          <!-- 四個選項按鈕區 -->
+          <div class="options-list" id="options-container">
+            <!-- 動態生成選項 -->
+          </div>
+
+          <!-- 題目底部按鈕導航 -->
+          <div class="q-footer-nav">
+            <button class="btn-action btn-secondary" id="btn-prev-q" onclick="app.prevQuestion()">
+              ⬅ 上一題 (←)
+            </button>
+            <div class="shortcut-tips">
+              鍵盤快速鍵：<span class="kbd-badge">1~4</span>/<span class="kbd-badge">A~D</span> 作答，<span class="kbd-badge">←/→</span> 切題，<span class="kbd-badge">F</span> 標記
+            </div>
+            <button class="btn-action btn-primary" id="btn-next-q" onclick="app.nextQuestion()">
+              下一題 ➡ (→)
+            </button>
+          </div>
+
+        </div>
+
+        <!-- 右側：答題地圖網格 (Question Palette) -->
+        <aside class="palette-sidebar">
+          <div class="palette-title">
+            <span>🗺️ 答題進度地圖</span>
+          </div>
+
+          <div class="palette-legend">
+            <div class="legend-item"><div class="legend-dot" style="background: var(--accent-primary);"></div>已答</div>
+            <div class="legend-item"><div class="legend-dot" style="background: var(--bg-tertiary); border:1px solid var(--border-color);"></div>未答</div>
+            <div class="legend-item"><div class="legend-dot" style="background: var(--color-warning);"></div>★標記</div>
+          </div>
+
+          <div id="palette-summary-text" style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+            已答 0 / 50 題
+          </div>
+
+          <div class="palette-grid" id="palette-grid">
+            <!-- 動態生成題目編號按鈕 -->
+          </div>
+        </aside>
+
+      </div>
+
+    </section>
+
+
+    <!-- ====================================================================
+         視圖 3：成績結算與詳細解析 (View: Result & Review)
+         ==================================================================== -->
+    <section id="view-result" class="view-section">
+      
+      <!-- 成績橫幅 -->
+      <div class="result-hero">
+        <div class="result-status-badge pass" id="res-status-badge">
+          🎉 測驗及格 (PASSED)
+        </div>
+        <div class="score-display pass" id="res-score-value">
+          86 分
+        </div>
+        <div class="score-subtitle" id="res-subtitle">
+          全真隨機模擬測驗 (及格標準：70 分)
+        </div>
+
+        <!-- 數據統計清單 -->
+        <div class="result-stats-grid">
+          <div class="res-stat-card">
+            <span class="res-stat-num" style="color: var(--color-success);" id="res-stat-correct">43</span>
+            <span class="res-stat-text">答對題數</span>
+          </div>
+          <div class="res-stat-card">
+            <span class="res-stat-num" style="color: var(--color-danger);" id="res-stat-wrong">7</span>
+            <span class="res-stat-text">答錯題數</span>
+          </div>
+          <div class="res-stat-card">
+            <span class="res-stat-num" style="color: var(--text-muted);" id="res-stat-unans">0</span>
+            <span class="res-stat-text">未作答題數</span>
+          </div>
+          <div class="res-stat-card">
+            <span class="res-stat-num" style="color: var(--accent-primary);" id="res-stat-time">28分15秒</span>
+            <span class="res-stat-text">測驗總耗時</span>
+          </div>
+        </div>
+
+        <!-- 操作按鈕列 -->
+        <div class="result-actions">
+          <button class="btn-action btn-primary" onclick="app.startExam(AppState.currentExam.mode || 'random_50')">
+            🔄 重新測驗一次
+          </button>
+          <button class="btn-action btn-secondary" onclick="app.showErrorBookModal()">
+            📕 檢視錯題本
+          </button>
+          <button class="btn-action btn-secondary" onclick="app.switchView('view-home')">
+            🏠 返回主選單
+          </button>
+        </div>
+      </div>
+
+      <!-- 詳解過濾列 -->
+      <div class="review-filter-bar">
+        <div class="section-title" style="margin-bottom: 0;">
+          <span>📝</span> 試卷題目詳細解析
+        </div>
+
+        <div class="filter-group">
+          <button class="filter-btn active" data-filter="all" onclick="app.setReviewFilter('all')">
+            全部題目
+          </button>
+          <button class="filter-btn" data-filter="wrong" onclick="app.setReviewFilter('wrong')">
+            ❌ 僅看錯題
+          </button>
+          <button class="filter-btn" data-filter="flagged" onclick="app.setReviewFilter('flagged')">
+            ⭐ 僅看標記題
+          </button>
+        </div>
+      </div>
+
+      <!-- 詳解題庫卡片列表 -->
+      <div class="review-list" id="review-cards-list">
+        <!-- 動態注入題目解析 -->
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ====================================================================
+       彈窗模組 (Modals)
+       ==================================================================== -->
+
+  <!-- 1. 歷次練習紀錄彈窗 (Modal History) -->
+  <div class="modal-backdrop" id="modal-history" onclick="if(event.target===this) app.closeModals();">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title"><span>📊</span> 歷次測驗成績紀錄</div>
+        <button class="modal-close-btn" onclick="app.closeModals()">✕</button>
+      </div>
+      <div class="modal-body" id="history-records-list">
+        <!-- 動態填入歷史紀錄 -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn-action btn-secondary" style="color: var(--color-danger);" onclick="app.clearHistory()">
+          🗑 清空歷史紀錄
+        </button>
+        <button class="btn-action btn-secondary" onclick="app.closeModals()">
+          關閉
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. 智慧錯題本彈窗 (Modal Error Book) -->
+  <div class="modal-backdrop" id="modal-error-book" onclick="if(event.target===this) app.closeModals();">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title"><span>📕</span> 智慧錯題本收錄清單</div>
+        <button class="modal-close-btn" onclick="app.closeModals()">✕</button>
+      </div>
+      <div class="modal-body" id="error-book-list">
+        <!-- 動態填入錯題本列表 -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn-action btn-secondary" style="color: var(--color-danger);" onclick="app.clearErrorBook()">
+          🗑 清空錯題本
+        </button>
+        <button class="btn-action btn-primary" onclick="app.closeModals(); app.startExam('error_book');">
+          ⚡ 開始錯題專屬特訓
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. 官方題庫預覽與下載 (Modal PDF) -->
+  <div class="modal-backdrop" id="modal-pdf" onclick="if(event.target===this) app.closeModals();">
+    <div class="modal-container" style="max-width: 800px;">
+      <div class="modal-header">
+        <div class="modal-title"><span>📖</span> 官方題庫 PDF 原檔</div>
+        <button class="modal-close-btn" onclick="app.closeModals()">✕</button>
+      </div>
+      <div class="modal-body" style="padding: 1.2rem;">
+        <div style="margin-bottom: 1rem; color: var(--text-secondary); font-size: 0.92rem;">
+          本系統題庫依據中華民國人壽保險商業同業公會發布之《外幣收付非投資型保險商品》200題專業科目彙整題庫建置。
+        </div>
+        <iframe src="人身保險業務員資格測驗_外幣收付非投資型保險商品_彙整題庫200題.pdf" style="width: 100%; height: 500px; border-radius: var(--radius-md); border: 1px solid var(--border-color);"></iframe>
+      </div>
+      <div class="modal-footer">
+        <a href="人身保險業務員資格測驗_外幣收付非投資型保險商品_彙整題庫200題.pdf" download class="btn-action btn-primary" style="text-decoration: none;">
+          📥 下載 PDF 題庫原檔
+        </a>
+        <button class="btn-action btn-secondary" onclick="app.closeModals()">
+          關閉
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. AI 考照小助教介紹 (Modal AI) -->
+  <div class="modal-backdrop" id="modal-ai" onclick="if(event.target===this) app.closeModals();">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title"><span>🤖</span> AI 考照智慧輔導小助教</div>
+        <button class="modal-close-btn" onclick="app.closeModals()">✕</button>
+      </div>
+      <div class="modal-body" style="line-height: 1.7; font-size: 0.95rem; color: var(--text-secondary);">
+        <p style="margin-bottom: 1rem;">
+          💡 <b>如何使用 AI 助教提升備考效率？</b>
+        </p>
+        <ol style="margin-left: 1.4rem; margin-bottom: 1.2rem; display: flex; flex-direction: column; gap: 0.6rem;">
+          <li><b>考題解析中一鍵提問</b>：在交卷後的詳解頁面中，點擊任何題目的「🤖 複製題目向 AI 請教」按鈕，系統會自動生成結構化 Prompt。</li>
+          <li><b>直接貼入 AI</b>：將 Prompt 貼入 ChatGPT、Claude 或 Gemini，AI 會為您列出考點關鍵字、法規條號、容易混淆的陷阱與速記口訣。</li>
+          <li><b>法規與計算題解惑</b>：特別針對國外投資額度上限、風險值評估頻率、申報結匯資格等難題進行深度釐清。</li>
+        </ol>
+        <div style="background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem;">
+          👉 您亦可使用專屬考照 GPTs：
+          <a href="https://reurl.cc/AMl5j3" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary); font-weight: 700; text-decoration: underline; margin-left: 0.4rem;">
+            開啟保險業務員考照 GPTs 助手 ↗
+          </a>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-action btn-primary" onclick="window.open('https://reurl.cc/AMl5j3', '_blank');">
+          🚀 前往 AI 助手
+        </button>
+        <button class="btn-action btn-secondary" onclick="app.closeModals()">
+          關閉
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast 訊息通知容器 -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="questions_data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
