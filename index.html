@@ -9,14 +9,14 @@
   <title>外幣收付非投資型保險商品 - 線上模擬考試系統</title>
   
   <!-- CSS Design System -->
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="index.css?v=20260821b">
 </head>
 <body>
 
   <!-- 頂部導覽列 (Navbar) -->
   <header class="navbar">
     <div class="nav-container">
-      <div class="nav-brand" onclick="app.switchView('view-home')">
+      <div class="nav-brand" onclick="app ? app.switchView('view-home') : location.reload()">
         <div class="brand-icon">🌐</div>
         <div class="brand-title">
           <h1>外幣收付非投資型保險商品</h1>
@@ -25,19 +25,19 @@
       </div>
 
       <div class="nav-actions">
-        <button class="btn-nav" onclick="app.showCourseModal()" title="觀看 YouTube 線上課程 Podcast">
+        <button class="btn-nav" onclick="showCourseModal()" title="觀看 YouTube 線上課程 Podcast">
           <span>🎧</span> <span class="nav-btn-text">線上課程</span>
         </button>
-        <button class="btn-nav" onclick="app.showPdfModal()" title="查看官方PDF題庫">
+        <button class="btn-nav" onclick="showPdfModal()" title="查看官方PDF題庫">
           <span>📖</span> <span class="nav-btn-text">官方題庫</span>
         </button>
-        <button class="btn-nav" onclick="app.showErrorBookModal()" title="開啟錯題本">
+        <button class="btn-nav" onclick="showErrorBookModal()" title="開啟錯題本">
           <span>📕</span> <span class="nav-btn-text">錯題本</span>
         </button>
-        <button class="btn-nav" onclick="app.showHistoryModal()" title="檢視歷次測驗紀錄">
+        <button class="btn-nav" onclick="showHistoryModal()" title="檢視歷次測驗紀錄">
           <span>📊</span> <span class="nav-btn-text">練習紀錄</span>
         </button>
-        <button id="theme-toggle-btn" class="btn-icon" onclick="app.toggleTheme()" title="切換主題">
+        <button id="theme-toggle-btn" class="btn-icon" onclick="app ? app.toggleTheme() : null" title="切換主題">
           ☀️
         </button>
       </div>
@@ -188,7 +188,7 @@
         </div>
 
         <!-- 項目 4：AI 考照輔導小助教 -->
-        <div class="category-card" onclick="app.showAiModal()">
+        <div class="category-card" onclick="showAiModal()">
           <div class="card-left">
             <div class="card-icon" style="color: var(--color-info);">🤖</div>
             <div class="card-info">
@@ -209,7 +209,7 @@
         </div>
 
         <!-- 項目 5：線上課程 Podcast -->
-        <div class="category-card" onclick="app.showCourseModal()">
+        <div class="category-card" onclick="showCourseModal()">
           <div class="card-left">
             <div class="card-icon" style="color: #ff0033;">🎧</div>
             <div class="card-info">
@@ -549,8 +549,41 @@
   <!-- Toast 訊息通知容器 -->
   <div class="toast-container" id="toast-container"></div>
 
-  <!-- Scripts -->
-  <script src="questions_data.js"></script>
-  <script src="app.js"></script>
+  <!-- Global Modal Helpers & Scripts -->
+  <script>
+    function showCourseModal() {
+      const m = document.getElementById('modal-course');
+      if (m) m.classList.add('active');
+    }
+    function showPdfModal() {
+      const m = document.getElementById('modal-pdf');
+      if (m) m.classList.add('active');
+    }
+    function showAiModal() {
+      const m = document.getElementById('modal-ai');
+      if (m) m.classList.add('active');
+    }
+    function showHistoryModal() {
+      if (window.app && app.showHistoryModal) {
+        app.showHistoryModal();
+      } else {
+        const m = document.getElementById('modal-history');
+        if (m) m.classList.add('active');
+      }
+    }
+    function showErrorBookModal() {
+      if (window.app && app.showErrorBookModal) {
+        app.showErrorBookModal();
+      } else {
+        const m = document.getElementById('modal-error-book');
+        if (m) m.classList.add('active');
+      }
+    }
+    function closeModals() {
+      document.querySelectorAll('.modal-backdrop').forEach(el => el.classList.remove('active'));
+    }
+  </script>
+  <script src="questions_data.js?v=20260821b"></script>
+  <script src="app.js?v=20260821b"></script>
 </body>
 </html>

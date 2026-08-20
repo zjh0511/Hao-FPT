@@ -882,15 +882,18 @@ ${q.explanation}
   }
 
   showPdfModal() {
-    document.getElementById('modal-pdf').classList.add('active');
+    const modal = document.getElementById('modal-pdf');
+    if (modal) modal.classList.add('active');
   }
 
   showAiModal() {
-    document.getElementById('modal-ai').classList.add('active');
+    const modal = document.getElementById('modal-ai');
+    if (modal) modal.classList.add('active');
   }
 
   showCourseModal() {
-    document.getElementById('modal-course').classList.add('active');
+    const modal = document.getElementById('modal-course');
+    if (modal) modal.classList.add('active');
   }
 
   closeModals() {
@@ -898,8 +901,24 @@ ${q.explanation}
   }
 }
 
-// 建立全域實例
+// 建立全域實例與容錯輔助
 let app;
-document.addEventListener('DOMContentLoaded', () => {
-  app = new ExamEngine();
-});
+const initApp = () => {
+  if (!app) {
+    app = new ExamEngine();
+  }
+};
+
+// 支援全域直調以防舊快取影響
+window.showCourseModal = () => document.getElementById('modal-course')?.classList.add('active');
+window.showPdfModal = () => document.getElementById('modal-pdf')?.classList.add('active');
+window.showAiModal = () => document.getElementById('modal-ai')?.classList.add('active');
+window.showHistoryModal = () => app?.showHistoryModal();
+window.showErrorBookModal = () => app?.showErrorBookModal();
+window.closeModals = () => document.querySelectorAll('.modal-backdrop').forEach(el => el.classList.remove('active'));
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  initApp();
+}
