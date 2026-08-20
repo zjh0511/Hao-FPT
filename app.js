@@ -889,6 +889,10 @@ ${q.explanation}
     document.getElementById('modal-ai').classList.add('active');
   }
 
+  showCourseModal() {
+    document.getElementById('modal-course').classList.add('active');
+  }
+
   closeModals() {
     document.querySelectorAll('.modal-backdrop').forEach(el => el.classList.remove('active'));
   }

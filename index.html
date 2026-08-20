@@ -25,6 +25,9 @@
       </div>
 
       <div class="nav-actions">
+        <button class="btn-nav" onclick="app.showCourseModal()" title="觀看 YouTube 線上課程 Podcast">
+          <span>🎧</span> <span class="nav-btn-text">線上課程</span>
+        </button>
         <button class="btn-nav" onclick="app.showPdfModal()" title="查看官方PDF題庫">
           <span>📖</span> <span class="nav-btn-text">官方題庫</span>
         </button>
@@ -184,7 +187,7 @@
           </div>
         </div>
 
-        <!-- 項目 5：AI 考照輔導小助教 -->
+        <!-- 項目 4：AI 考照輔導小助教 -->
         <div class="category-card" onclick="app.showAiModal()">
           <div class="card-left">
             <div class="card-icon" style="color: var(--color-info);">🤖</div>
@@ -200,6 +203,27 @@
             <div class="card-meta">
               <span>ChatGPT / Claude 串接</span>
               <span>一鍵複製 Prompt</span>
+            </div>
+            <div class="card-arrow">➜</div>
+          </div>
+        </div>
+
+        <!-- 項目 5：線上課程 Podcast -->
+        <div class="category-card" onclick="app.showCourseModal()">
+          <div class="card-left">
+            <div class="card-icon" style="color: #ff0033;">🎧</div>
+            <div class="card-info">
+              <div class="card-title-wrap">
+                <span class="card-title">線上課程 Podcast（豪老師 YouTube 影音特訓）</span>
+                <span class="card-badge" style="background: rgba(255, 0, 51, 0.15); color: #ff3355; border: 1px solid rgba(255, 0, 51, 0.4);">YouTube 播放清單</span>
+              </div>
+              <p class="card-desc">豪老師 YouTube 外幣收付非投資型保險商品線上課程與 Podcast 講義，通勤、隨身隨時聽，觀念理解更加倍！</p>
+            </div>
+          </div>
+          <div class="card-right">
+            <div class="card-meta">
+              <span>YouTube 影音課程</span>
+              <span>隨時隨地免費聽</span>
             </div>
             <div class="card-arrow">➜</div>
           </div>
@@ -482,6 +506,38 @@
       <div class="modal-footer">
         <button class="btn-action btn-primary" onclick="window.open('https://chatgpt.com/g/g-68300fd7a6ac8191a552b8cf30b27132-wai-bi-shou-fu-fei-tou-zi-xing-bao-xian-shang-pin-kao-zhao-fu-dao-xiao-zhu-jiao-by-hao-lao-shi', '_blank');">
           🚀 前往 AI 助手
+        </button>
+        <button class="btn-action btn-secondary" onclick="app.closeModals()">
+          關閉
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. 線上課程 Podcast 彈窗 (Modal Course) -->
+  <div class="modal-backdrop" id="modal-course" onclick="if(event.target===this) app.closeModals();">
+    <div class="modal-container" style="max-width: 820px;">
+      <div class="modal-header">
+        <div class="modal-title"><span>🎧</span> 外幣考照線上課程 Podcast (by 豪老師)</div>
+        <button class="modal-close-btn" onclick="app.closeModals()">✕</button>
+      </div>
+      <div class="modal-body" style="padding: 1.2rem;">
+        <div style="margin-bottom: 1rem; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+          📺 <b>豪老師專屬 YouTube 線上課程播放清單</b>：完整收錄外幣收付非投資型保險商品各章節觀念、重點法規精闢講解與聽力特訓音頻，您可以直接在下方播放，或前往 YouTube App 聆聽！
+        </div>
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--radius-md); border: 1px solid var(--border-color); background: #000; box-shadow: var(--shadow-sm);">
+          <iframe 
+            src="https://www.youtube-nocookie.com/embed/videoseries?list=PLmr7lEPLWvVZMNH8z4jpZGonzi5amylIQ" 
+            title="外幣收付非投資型保險商品 線上課程 Podcast" 
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-action btn-primary" onclick="window.open('https://www.youtube.com/playlist?list=PLmr7lEPLWvVZMNH8z4jpZGonzi5amylIQ', '_blank');" style="background: #ff0033; border-color: #ff0033;">
+          🚀 前往 YouTube 播放清單
         </button>
         <button class="btn-action btn-secondary" onclick="app.closeModals()">
           關閉
