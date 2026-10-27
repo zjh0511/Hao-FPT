@@ -171,6 +171,13 @@ body {
   color: #ffffff;
 }
 
+.brand-logo {
+  height: 40px;
+  width: auto;
+  flex-shrink: 0;
+  display: block;
+}
+
 .brand-title {
   display: flex;
   flex-direction: column;
@@ -1338,6 +1345,14 @@ body {
 
   .nav-actions {
     gap: 0.35rem;
+  }
+
+  .brand-logo {
+    height: 30px;
+  }
+
+  .brand-title h1 {
+    font-size: 0.98rem;
   }
 }
 
