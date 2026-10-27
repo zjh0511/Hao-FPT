@@ -25,7 +25,7 @@
    - 內建專屬考照 GPTs：[開啟外幣考照小助教 (by 豪老師)](https://chatgpt.com/g/g-68300fd7a6ac8191a552b8cf30b27132-wai-bi-shou-fu-fei-tou-zi-xing-bao-xian-shang-pin-kao-zhao-fu-dao-xiao-zhu-jiao-by-hao-lao-shi)。
 5. **🎧 線上課程 Podcast (豪老師 YouTube 影音特訓)**：
    - 內建 YouTube 播放清單與嵌入式播放器，通勤隨身聽、考前觀念大加強。
-   - 官方播放清單：[YouTube 外幣考照線上課程 Podcast](https://www.youtube.com/playlist?list=PLmr7lEPLWvVZMNH8z4jpZGonzi5amylIQ)。
+   - 官方播放清單：[2026 新版外幣考前重點課](https://www.youtube.com/playlist?list=PLeAQQBL9vkYU)。
 6. **🗺️ 答題進度地圖與鍵盤快捷鍵**：
    - 支援快捷鍵：`1~4` / `A~D` 選擇答案、`←/→` 切換題目、`F` 標記星號、`Space` 暫停。
    - 即時答題地圖網格（已答、未答、標記、當前題號）。

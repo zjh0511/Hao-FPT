@@ -577,6 +577,8 @@ class ExamEngine {
     this.renderResultView(record);
     this.switchView('view-result');
 
+    if (window.haoTrack) window.haoTrack('exam_submit', { mode: exam.mode, score: totalScore, passed });
+
     if (passed) {
       this.triggerConfetti();
     }
@@ -702,9 +704,14 @@ class ExamEngine {
           <div>${it.explanation || '本題依據保險相關法規與外幣收付管理辦法訂定。'}</div>
         </div>
 
-        <button class="review-ai-btn" onclick="app.copyAIPrompt(${it.id})">
-          🤖 複製題目向 AI 考照小助教請教
-        </button>
+        <div class="review-btn-row">
+          <button class="review-ai-btn" onclick="app.copyAIPrompt(${it.id})">
+            🤖 複製題目向 AI 考照小助教請教
+          </button>
+          <a class="review-ai-btn review-video-btn" href="https://www.youtube.com/playlist?list=PLeAQQBL9vkYU" target="_blank" rel="noopener noreferrer" data-track="youtube_click" data-track-location="review_card">
+            ▶ 看豪老師影片講解這章觀念
+          </a>
+        </div>
       `;
 
       listContainer.appendChild(card);

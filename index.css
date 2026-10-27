@@ -1308,6 +1308,166 @@ body {
 }
 
 /* ==========================================================================
+   導流區塊：LINE／YouTube／其他證照模擬考
+   ========================================================================== */
+
+.btn-nav {
+  white-space: nowrap;
+}
+
+/* 導覽按鈕變多：中等寬度時讓按鈕列換到品牌名稱下一行 */
+@media (max-width: 1100px) {
+  .nav-container {
+    flex-wrap: wrap;
+  }
+
+  .nav-actions {
+    flex-wrap: wrap;
+  }
+}
+
+/* 手機：導覽按鈕只留圖示（LINE 保留文字），維持一行 */
+@media (max-width: 640px) {
+  .btn-nav:not(.btn-nav-line) .nav-btn-text {
+    display: none;
+  }
+
+  .btn-nav {
+    padding: 0.45rem 0.55rem;
+  }
+
+  .nav-actions {
+    gap: 0.35rem;
+  }
+}
+
+.btn-nav-line {
+  text-decoration: none;
+  border-color: hsla(145, 94%, 40%, 0.55);
+}
+
+.btn-nav-line:hover {
+  border-color: #06c755;
+  color: #06c755;
+}
+
+.category-card.card-line {
+  border-color: hsla(145, 94%, 40%, 0.45);
+}
+
+.category-card.card-line:hover {
+  border-color: #06c755;
+  box-shadow: var(--shadow-md), 0 0 24px -4px hsla(145, 94%, 40%, 0.3);
+}
+
+.category-card.card-line:hover .card-arrow {
+  background: #06c755;
+  border-color: #06c755;
+}
+
+.badge-line {
+  background: hsla(145, 94%, 40%, 0.15);
+  color: #06c755;
+  border: 1px solid hsla(145, 94%, 40%, 0.45);
+  text-transform: none;
+}
+
+.other-exams-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.other-exam-card,
+.cta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1rem 1.2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: inherit;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.other-exam-card:hover,
+.cta-item:hover {
+  border-color: var(--accent-primary);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+}
+
+.other-exam-icon,
+.cta-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.other-exam-info,
+.cta-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.other-exam-title,
+.cta-text b {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.other-exam-desc,
+.cta-text small {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.cta-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.4rem;
+  margin-bottom: 2rem;
+}
+
+.cta-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+}
+
+.cta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.8rem;
+}
+
+.cta-item {
+  background: var(--bg-tertiary);
+}
+
+.review-btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.review-video-btn {
+  color: #ff3355;
+  text-decoration: none;
+}
+
+.review-video-btn:hover {
+  background: rgba(255, 0, 51, 0.12);
+  border-color: #ff3355;
+}
+
+/* ==========================================================================
    Responsive Breakpoints
    ========================================================================== */
 
